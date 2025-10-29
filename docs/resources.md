@@ -18,6 +18,11 @@ https://www.geeksforgeeks.org/python/integrating-rabbitmq-with-python/
 ### Pika Documentation
 https://pika.readthedocs.io/en/stable/intro.html
 
+### Python and REST APIs
+https://realpython.com/api-integration-in-python/
+
+### REST API using Flask
+https://www.geeksforgeeks.org/python/python-build-a-rest-api-using-flask/
 
 ## Dependencies and Resources
 
