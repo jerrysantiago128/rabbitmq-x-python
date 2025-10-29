@@ -15,8 +15,12 @@ https://www.rabbitmq.com/tutorials/tutorial-one-python
 ### Integrating RabbitMQ with Python
 https://www.geeksforgeeks.org/python/integrating-rabbitmq-with-python/
 
+### Pika Documentation
+https://pika.readthedocs.io/en/stable/intro.html
+
 
 ## Dependencies and Resources
+
 ### RabbitMQ Docker Image
 https://hub.docker.com/_/rabbitmq/tags
 
