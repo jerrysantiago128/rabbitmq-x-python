@@ -1,5 +1,5 @@
 # app.py
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field
 from typing import List
 
@@ -29,7 +29,7 @@ async def get_all_sensors():
     return sensors
 
 @app.get("/sensors/{sensor_id}")
-async def get__unique_sensor(sensor_id: str):
+async def get_unique_sensor(sensor_id: str):
     """
     Retrieves a specific sensor by its unique ID.
     
@@ -57,7 +57,7 @@ async def add_sensor(new_sensor: sensor):
     since the sensor object contains its own ID.
     """
 
-    # Check for duplicates before adding
+    # Check for duplicates before adding; UPDATE/REROUTE THIS FOR A PUT COMMAND/
     if next((s for s in sensors if s.sensor_id == new_sensor.sensor_id), None):
         raise HTTPException(
             status_code=409, # 409 Conflict
