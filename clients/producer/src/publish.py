@@ -7,7 +7,7 @@ rabbitmq = RabbitMQ()
 count = 0
 queue_name = 'json_data'
 
-while count < 1:
+while count < 10:
     # generate json data
     message = generate_data.generate_json_data()
     
@@ -18,6 +18,6 @@ while count < 1:
     # print(f"Sent message: {message}")
      # increment
     count += 1
-    time.sleep(1)
+    #time.sleep(1)
 
 rabbitmq.close()

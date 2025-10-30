@@ -3,7 +3,7 @@ import datetime
 import random
 import numpy as np
 
-def generate_json_data(sensor_id="SENSOR-001", min_length=1, max_length=10):
+def generate_json_data(sensor_id_prefix="SENSOR-", min_length=1, max_length=10):
     """
     Generates a single 2D shape data entry in JSON format.
 
@@ -15,7 +15,9 @@ def generate_json_data(sensor_id="SENSOR-001", min_length=1, max_length=10):
     Returns:
         A string containing a single JSON record of 2D shape.
     """
-
+    # generate random sensor_id value
+    sensor_id = sensor_id_prefix + str(random.randint(100,110))
+    
     # set a number of rows for the 2D array, if num_data_points = 2, then shape should be a line, if num = 3. shape should be triangle, etc, etc
     num_data_points = random.randint(min_length, max_length)
 
