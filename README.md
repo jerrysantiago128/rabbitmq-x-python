@@ -5,10 +5,11 @@ This project exists to experiment with rabbitMQ configuration, deployment and cl
 processes.
 
 ### Tech Stack
-Docker/Docker Compose
-Python/Pip
-Bash Scripting
-RabbitMQ
+- Docker/Docker Compose
+- Python/Pip
+- Bash Scripting
+- RabbitMQ
+- FastAPI
 
 ## Project Organization
 
@@ -19,3 +20,5 @@ RabbitMQ
 - consumer: code and scripts to create a containerized RabbitMQ consumer via Python to ingest data and perform ETL on said data.
 #### infra
 - code and scripts to spin up and maintain RabbitMQ via Docker
+#### rest-api
+- code and scripts to spin up a REST-API for the sensor data
