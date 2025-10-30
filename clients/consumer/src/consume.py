@@ -1,5 +1,6 @@
 from rabbitmq import RabbitMQ
 import json
+import requests
 
 
 
@@ -32,8 +33,24 @@ def determine_shape(data_points):
     return shape
 
 
-#def sendToUI(message):
-    # implement code to send message to REST API
+def sendToAPI(message):
+    # update this to grab environment configs
+    # create URL to send message
+    API_HOST= "http://172.17.0.4" # sensor-api
+    API_PORT= 8000
+    SENSOR_ENDPOINT="/sensors"
+    
+    api_url = f"{API_HOST}:{API_PORT}{SENSOR_ENDPOINT}"
+
+    try:
+        # send POST request
+        response = requests.post(api_url, json=message)
+        response.raise_for_status()
+
+        print(f"Data sent successfully to the API.")
+
+    except requests.exceptions.RequestException as e:
+        print(f"Error communicating with the Sensor-API: {e}")
 
 
 def callback(ch, method, properties, body):
@@ -51,7 +68,7 @@ def process(message):
             # update message dictionary to pass to REST API
             message["shape"] = shape
             print(message)
-            #sendToUI(message)
+            sendToAPI(message)
         except ValueError as error:
             print(error)
     else:
