@@ -1,0 +1,9 @@
+version: '3.8'
+services:
+  sensor-api:
+    ports:
+      - "8000:8000"
+    container_name: sensor-api
+    hostname: sensor-api
+    # Restart policy ensures the container tries to stay alive if it crashes
+    restart: always 
