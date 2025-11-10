@@ -5,7 +5,7 @@ class RabbitMQ:
     def __init__(self):
         self.user = os.getenv('RABBITMQ_USER', 'guest') # grab the env config 'RABBITMQ_USER' OR use the default value 'guest'
         self.password = os.getenv('RABBITMQ_PASSWORD', 'guest') # grab the env config 'RABBITMQ_PASSWORD' OR use the default value 'guest'
-        self.host = os.getenv('RABBITMQ_HOST', '172.17.0.2') # grab the env config 'RABBITMQ_HOST' OR use the default value 'localhost'
+        self.host = os.getenv('RABBITMQ_HOST', 'localhost') # grab the env config 'RABBITMQ_HOST' OR use the default value 'localhost'
         self.port = int(os.getenv('RABBITMQ_PORT', 5672)) # grab the env config 'RABBITMQ_PORT' OR use the default value '5672'
         self.connection = None
         self.channel = None
