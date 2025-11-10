@@ -23,7 +23,7 @@ More images can be found at the link below:
     
     https://hub.docker.com/_/rabbitmq/tags
 
-#### Start ther service
+#### Start the service
 
     docker run --name rabbitMQ-server --hostname rabbitMQ-server -p 5672:5672 -p 15672:15672 -d rabbitmq:4.2.0-management
 

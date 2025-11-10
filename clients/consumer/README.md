@@ -2,6 +2,47 @@
 
 Consume, process, analyze, update, and send off JSON data to a REST API
 
+## Assumptions
+
+Docker is installed on your machine
+
+## Usage
+
+### Docker
+
+#### Pull the Image
+ 
+Simply run the command below to pull to RabbitMQ image locally:
+
+    docker pull python:3.11
+
+More images can be found at the link below:
+    
+    https://hub.docker.com/_/python/tags
+
+#### Build the Image
+
+Using the build script provided, run the command below to buld the image for the consumer service
+
+    ./build-image.sh
+
+#### Start the service
+
+    docker run --name <some-name> --hostname <some-hostname> -d python:3.11
+
+    - Note: the `-d` flag will run the container in "detatched" mode
+    - Remove the `-d` or use `docker logs -f <container-name> to view the logs for the container.
+
+Verify that the image is built and run 
+
+## Connectivity
+
+Using Default RabbitMQ Deployment:
+- username: guest
+- password: guest
+- host: Docker IP OR localhost
+- port: 5672
+
 ## Methods
 ### callback(bytes: body)
 
@@ -23,10 +64,3 @@ Consume, process, analyze, update, and send off JSON data to a REST API
 ### sendToAPI(dict: message)
 
 - the python dictionary message is sent as JSON object to the defined API endpoint
-
-
-## Connectivity
-- username: guest
-- password: guest
-- host: Docker IP OR localhost
-- port: 5672
