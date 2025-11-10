@@ -1,6 +1,7 @@
 from rabbitmq import RabbitMQ
 import json
 import requests
+import os
 
 
 
@@ -36,11 +37,12 @@ def determine_shape(data_points):
 def sendToAPI(message):
     # update this to grab environment configs
     # create URL to send message
-    API_HOST= "http://172.17.0.4" # sensor-api
-    API_PORT= 8000
+
+    API_HOST= os.getenv('SENSOR_API_HOST', 'localhost') # sensor-api
+    API_PORT= int(os.getenv('SENSOR_API_PORT', 8080))
     SENSOR_ENDPOINT="/sensors"
     
-    api_url = f"{API_HOST}:{API_PORT}{SENSOR_ENDPOINT}"
+    api_url = f"http://{API_HOST}:{API_PORT}{SENSOR_ENDPOINT}"
 
     try:
         # send POST request
