@@ -1,0 +1,40 @@
+name: Python Build
+
+on:
+  push:
+    branches:
+      - main # Trigger on pushes to the main branch
+  pull_request:
+    branches:
+      - main # Trigger on pull requests targeting the main branch
+
+jobs:
+  build:
+    # This job performs the core build, dependency setup, and version confirmation.
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v5 # Get the repository code
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          # Cache dependencies using pip's cache directory
+          cache: 'pip' 
+
+      - name: Install Dependencies
+        run: |
+          # Upgrade pip to ensure the latest features and security fixes
+          python -m pip install --upgrade pip 
+          
+          # Install all project dependencies
+          pip install -r requirements.txt
+      
+      - name: Display Python Version (Optional Check)
+        run: python -c "import sys; print(sys.version)" # Confirm the environment is correct
+
+      # ➡️ Add further steps here, such as running tests or linting
+      # - name: Run Tests
+      #   run: pytest
