@@ -1,4 +1,3 @@
-from rabbitmq import RabbitMQ
 import json
 import requests
 import os
@@ -77,7 +76,3 @@ def process(message):
         print(f"ERROR: \nSensor ID: {message['sensor_id']} not valid")
 
 
-queue_name = 'json_data'
-rabbitmq = RabbitMQ()
-print("Starting RabbitMQ Consumer")
-rabbitmq.consume(queue_name, callback)
