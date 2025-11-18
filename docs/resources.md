@@ -31,3 +31,8 @@ https://hub.docker.com/_/rabbitmq/tags
 
 ### Pika Python AMQP Client Library version 1.3.2
 https://pypi.org/project/pika/
+
+
+
+### Packaging Python Projects (use for standardizing code and leveraging packages for pytest)
+https://packaging.python.org/en/latest/tutorials/packaging-projects/
